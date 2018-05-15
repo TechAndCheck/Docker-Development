@@ -1,0 +1,75 @@
+version: '3'
+services:
+
+  develop:
+    build: .
+    volumes:
+      - ./:/www
+    dns:
+      - 1.1.1.1
+      - 1.0.0.1
+    cap_add:
+      - ALL
+    env_file: .env
+    depends_on:
+      - postgres
+      - mysql
+    ports:
+      - "80:80"
+      - "443:443"
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+  node:
+    image: node
+    volumes: 
+      - ./node:/www
+    cap_add:
+      - ALL
+    env_file: .env
+    depends_on:
+      - postgres
+      - mysql
+    ports:
+      - "80:80"
+      - "443:443"
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+  postgres:
+    image: postgres
+    restart: always
+    volumes:
+      - "./.docker/postgres:/data/postgres"
+      - "./.docker/backups:/data/backups"
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      PGDATA: /data/postgres
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+  mysql:
+    image: mysql
+    restart: always
+    volumes:
+      - "./.docker/mysql:/var/lib/mysql"
+    environment:
+      MYSQL_USER: mysql
+      MYSQL_PASSWORD: mysql
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: mysql
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
