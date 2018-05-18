@@ -30,6 +30,21 @@ This builds a few different Docker containers, links them up, and makes it easy 
 - MySQL 8.0.11
 - Postgres 10.4
 
+Docker Installation
+---
+### MacOS: 
+
+You can find installation instructions for Docker at https://docs.docker.com/docker-for-mac/install/
+
+Docker Compose (also needed for this project) comes preinstalled.
+
+### Windows
+
+So, there's a hiccup here. If you're already using Vagrant the method laid out below will break that. That's probably not good. If you're using Vagrant as well you want to follow these instructions: https://docs.docker.com/toolbox/overview/
+
+For Windows 10 without Vagrant, follow these:
+https://docs.docker.com/docker-for-windows/install/
+
 Set Up
 ---
 1. On GitHub, navigate to the **** repository.
