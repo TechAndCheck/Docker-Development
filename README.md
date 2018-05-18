@@ -45,6 +45,13 @@ So, there's a hiccup here. If you're already using Vagrant the method laid out b
 For Windows 10 without Vagrant, follow these:
 https://docs.docker.com/docker-for-windows/install/
 
+### Linux
+
+I'm going to go out on a limb and say that you probably know what you're doing somewhat if your desktop or server system is Linux based. The best bet would be to Google your specific distribution and find those instructions. I've included Ubuntu below for some basic steps:
+
+Install Docker: https://docs.docker.com/toolbox/overview/
+Install Docker Compose: https://docs.docker.com/compose/install/
+
 Set Up
 ---
 1. On GitHub, navigate to the **** repository.
